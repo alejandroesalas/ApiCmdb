@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">SysCmdb</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="title_activity_home">Home</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Sec. Educación</string>
+    <string name="nav_header_subtitle">SysCmdb</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="test">fake</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <!--menu items administracion de la configuracion -->
+    <string name="item_one">Administración de la configuración</string>
+    <string name="menu_resume">Resumen</string>
+    <string name="menu_contactos">Contactos</string>
+    <string name="menu_localidades">Localidades</string>
+    <string name="menu_EC">Nuevo EC</string>
+    <string name="menu_EC_search">Busqueda de ECs</string>
+    <string name="menu_cat_software">Software</string>
+    <string name="menu_document">Documentos</string>
+    <string name="menu_send">Send</string>
+    <string name="urlResApi">http://localhost/itop/webservices/rest.php?version=1.2</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

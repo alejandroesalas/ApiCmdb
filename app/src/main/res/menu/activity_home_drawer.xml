@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <!--
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="@string/menu_home" />
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="@string/menu_gallery" />
+        <item
+            android:id="@+id/nav_slideshow"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/menu_slideshow" />
+        <item
+            android:id="@+id/nav_tools"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="@string/menu_tools" />
+    </group>-->
+    <item android:title="@string/item_one">
+        <menu>
+            <item
+                android:id="@+id/nav_resume"
+                android:icon="@drawable/ic_menu_send"
+                android:title="@string/menu_resume" />
+            <item
+                android:id="@+id/nav_contact"
+                android:icon="@drawable/ic_menu_send"
+                android:title="@string/menu_contactos" />
+            <item
+                android:id="@+id/nav_locale"
+                android:icon="@drawable/ic_menu_send"
+                android:title="@string/menu_localidades" />
+            <item
+                android:id="@+id/nav_EC"
+                android:icon="@drawable/ic_menu_send"
+                android:title="@string/menu_EC" />
+            <item
+                android:id="@+id/nav_EC_Search"
+                android:icon="@drawable/ic_menu_send"
+                android:title="@string/menu_EC_search" />
+            <item android:id="@+id/nav_document"
+                android:icon="@drawable/ic_menu_send"
+                android:title="@string/menu_document" />
+            <item
+                android:id="@+id/nav_software"
+                android:icon="@drawable/ic_menu_send"
+                android:title="@string/menu_cat_software" />
+        </menu>
+    </item>
+
+</menu>
