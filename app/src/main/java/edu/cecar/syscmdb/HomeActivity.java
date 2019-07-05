@@ -18,6 +18,7 @@ import android.view.Menu;
 import edu.cecar.syscmdb.fragments.ECs.CreateECFragment;
 import edu.cecar.syscmdb.fragments.ECs.SearchECsFragment;
 import edu.cecar.syscmdb.fragments.contacts.ResumeContactFragment;
+import edu.cecar.syscmdb.fragments.locations.GeneralLocationView;
 import edu.cecar.syscmdb.fragments.locations.ResumeLocationsFragment;
 
 public class HomeActivity extends AppCompatActivity
@@ -47,15 +48,15 @@ public class HomeActivity extends AppCompatActivity
             super.onBackPressed();
         }
     }
-
+/*
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.home, menu);
         return true;
     }
-
-    @Override
+*/
+    /*@Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
@@ -68,7 +69,7 @@ public class HomeActivity extends AppCompatActivity
         }
 
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -84,7 +85,7 @@ public class HomeActivity extends AppCompatActivity
             state = true;
         } else if (id == R.id.nav_locale) {
             state = true;
-            currenFragment = new ResumeLocationsFragment();
+            currenFragment = new GeneralLocationView();
         } else if (id == R.id.nav_EC) {
             currenFragment = new CreateECFragment();
             state = true;
