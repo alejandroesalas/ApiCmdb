@@ -43,6 +43,8 @@ public class ResumeContactFragment extends Fragment {
        // ActionBar actionBar =
        // actionBar.setTitle("Pedido");
        // actionBar.setDisplayHomeAsUpEnabled(true);
+        mViewModel = ViewModelProviders.of(this.getActivity()).get(ResumeContactViewModel.class);
+        mViewModel.setVolleySingleton(volleYSingleton);
         groupImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,8 +73,6 @@ public class ResumeContactFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-         mViewModel = ViewModelProviders.of(this.getActivity()).get(ResumeContactViewModel.class);
-         mViewModel.setVolleySingleton(volleYSingleton);
          mViewModel.getPersons().observe(this, new Observer<List<Person>>() {
              @Override
              public void onChanged(@Nullable List<Person> persons) {

@@ -113,6 +113,9 @@ public final class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.Vi
                 status.setText(theTeam.getStatus());
                 email.setText(theTeam.getEmail());
                 orgName.setText(theTeam.getOrgName());
+                Glide.with(mCtx).load(R.mipmap.ic_group).asBitmap()
+                        .placeholder(R.mipmap.ic_group)
+                        .into(picture);
             }
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

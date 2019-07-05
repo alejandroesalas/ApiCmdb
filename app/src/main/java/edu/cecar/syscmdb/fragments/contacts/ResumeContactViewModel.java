@@ -126,7 +126,7 @@ public class ResumeContactViewModel extends ViewModel {
                 return headers;
             }
         };
-        stringRequest.setShouldCache(false);
+        stringRequest.setShouldCache(true);
         volleYSingleton.addToRequestQueue(stringRequest);
     }
     //carga los datos de los equipos
@@ -178,6 +178,7 @@ public class ResumeContactViewModel extends ViewModel {
                 return headers;
             }
         };
+        stringRequest.setShouldCache(true);
         volleYSingleton.addToRequestQueue(stringRequest);
     }
     public void setVolleySingleton(VolleYSingleton volleYSingleton){
