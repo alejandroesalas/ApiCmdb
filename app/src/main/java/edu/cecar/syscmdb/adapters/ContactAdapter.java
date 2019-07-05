@@ -73,14 +73,14 @@ public final class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.Vi
              //se inicializan los elementos segun el layout
             switch (layout){
                 case R.layout.layout_contact_group:
-                        picture = itemView.findViewById(R.id.groupImageView);
+                        picture = itemView.findViewById(R.id.imageViewGridGroup);
                         name = itemView.findViewById(R.id.txtgroupName);
                         status = itemView.findViewById(R.id.txtGroupStatus);
                         email = itemView.findViewById(R.id.txtGroupEmail);
                         orgName = itemView.findViewById(R.id.txtGroupOrgName);
                     break;
                 default:
-                    picture = itemView.findViewById(R.id.contactImageView);
+                    picture = itemView.findViewById(R.id.imageViewGridPerson);
                     name = itemView.findViewById(R.id.txtPersonName);
                     status = itemView.findViewById(R.id.txtPersonStatus);
                     email = itemView.findViewById(R.id.txtPersonEmail);
