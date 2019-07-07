@@ -26,7 +26,7 @@
     <string name="menu_resume">Resumen</string>
     <string name="menu_contactos">Contactos</string>
     <string name="menu_localidades">Localidades</string>
-    <string name="menu_EC">Nuevo EC</string>
+    <string name="menu_EC">Elementos de configuración</string>
     <string name="menu_EC_search">Busqueda de ECs</string>
     <string name="menu_cat_software">Software</string>
     <string name="menu_document">Documentos</string>

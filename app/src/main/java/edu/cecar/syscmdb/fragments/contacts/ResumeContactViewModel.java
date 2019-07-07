@@ -42,7 +42,7 @@ public class ResumeContactViewModel extends ViewModel {
             "\"class\":\"Team\"," +
             "\"key\":\"SELECT Team\"," +
             "\"output_fields\":\"name,status,org_id,org_name,email,persons_list\"}";
-    private final String url ="http://192.168.1.3:80/itop/webservices/rest.php?version=1.0";
+    private final String url ="http://192.168.1.26:80/itop/webs ervices/rest.php?version=1.0";
     private VolleYSingleton volleYSingleton;
     public LiveData<List<Person>> getPersons() {
 

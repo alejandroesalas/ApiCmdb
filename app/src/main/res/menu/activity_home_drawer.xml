@@ -39,10 +39,6 @@
                 android:id="@+id/nav_EC"
                 android:icon="@drawable/ic_menu_send"
                 android:title="@string/menu_EC" />
-            <item
-                android:id="@+id/nav_EC_Search"
-                android:icon="@drawable/ic_menu_send"
-                android:title="@string/menu_EC_search" />
             <item android:id="@+id/nav_document"
                 android:icon="@drawable/ic_menu_send"
                 android:title="@string/menu_document" />

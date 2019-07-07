@@ -89,10 +89,7 @@ public class HomeActivity extends AppCompatActivity
         } else if (id == R.id.nav_EC) {
             currenFragment = new CreateECFragment();
             state = true;
-        } else if (id == R.id.nav_EC_Search) {
-            state = true;
-            currenFragment = new SearchECsFragment();
-        }else if(id == R.id.nav_document){
+        } else if(id == R.id.nav_document){
         }
         else if (id == R.id.nav_software) {
         }

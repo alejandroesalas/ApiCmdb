@@ -21,8 +21,6 @@ import java.util.List;
 import java.util.Map;
 
 import edu.cecar.syscmdb.data.model.Location;
-import edu.cecar.syscmdb.data.model.Person;
-import edu.cecar.syscmdb.data.model.Picture;
 import edu.cecar.syscmdb.data.model.VolleYSingleton;
 
 public final class LocationViewModel  extends ViewModel {
@@ -34,7 +32,7 @@ public final class LocationViewModel  extends ViewModel {
             "\"output_fields\":\"name,status,org_id,org_name"+
             ",address,postal_code,city,country,physicaldevice_list,person_list\""+
             "}";
-    private final String url ="http://192.168.1.3:80/itop/webservices/rest.php?version=1.0";
+    private final String url ="http://192.168.1.26:80/itop/webservices/rest.php?version=1.0";
     private VolleYSingleton volleYSingleton;
 
     public LiveData<List<Location>> getLocations() {
