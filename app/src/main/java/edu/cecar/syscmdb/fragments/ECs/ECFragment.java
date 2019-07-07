@@ -10,9 +10,10 @@ import android.view.ViewGroup;
 
 import edu.cecar.syscmdb.R;
 
-public class SearchECsFragment extends Fragment {
+public class ECFragment extends Fragment {
 
-    public SearchECsFragment() {
+
+    public ECFragment() {
         // Required empty public constructor
     }
 
@@ -25,7 +26,6 @@ public class SearchECsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_search_ecs, container, false);
+        return inflater.inflate(R.layout.fragment_create_ec, container, false);
     }
-
 }

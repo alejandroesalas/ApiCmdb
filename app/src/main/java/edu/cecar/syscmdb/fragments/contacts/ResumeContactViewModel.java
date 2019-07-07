@@ -21,6 +21,7 @@ import java.util.List;
 import java.util.Map;
 
 import edu.cecar.syscmdb.R;
+import edu.cecar.syscmdb.data.model.Constantes;
 import edu.cecar.syscmdb.data.model.Location;
 import edu.cecar.syscmdb.data.model.Person;
 import edu.cecar.syscmdb.data.model.Picture;
@@ -31,6 +32,7 @@ public class ResumeContactViewModel extends ViewModel {
 
     private MutableLiveData<List<Person>>personList;
     private MutableLiveData<List<Team>>teamList;
+    private MutableLiveData<Integer>totalContacts= new MutableLiveData<>();
     private final String jsonData ="{\"operation\":\"core/get\","+
             "\"class\":\"Person\","+
             "\"key\":\"SELECT Person\","+
@@ -42,7 +44,7 @@ public class ResumeContactViewModel extends ViewModel {
             "\"class\":\"Team\"," +
             "\"key\":\"SELECT Team\"," +
             "\"output_fields\":\"name,status,org_id,org_name,email,persons_list\"}";
-    private final String url ="http://192.168.1.26:80/itop/webs ervices/rest.php?version=1.0";
+    //private final String url ="http://192.168.1.26:80/itop/webs ervices/rest.php?version=1.0";
     private VolleYSingleton volleYSingleton;
     public LiveData<List<Person>> getPersons() {
 
@@ -59,13 +61,20 @@ public class ResumeContactViewModel extends ViewModel {
         }
         return teamList;
     }
-    public int totalContacts(){
-        return personList.getValue().size()+teamList.getValue().size();
+    public LiveData<Integer> totalContacts(){
+        if (totalContacts== null){
+                totalContacts =new MutableLiveData<>();
+                totalContacts.setValue(0);
+               /* if (personList.getValue()!=null && teamList.getValue()!=null){
+                    totalContacts.setValue(personList.getValue().size()+teamList.getValue().size());
+                }*/
+        }
+        return totalContacts;
     }
     //carga los datos de las personas
     private void loadPersons(){
-        final List<Person> teams = new ArrayList<>();
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+        final List<Person> persons = new ArrayList<>();
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, Constantes.URL_API, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
@@ -97,9 +106,10 @@ public class ResumeContactViewModel extends ViewModel {
                         newPicture.setFilename(pictureJsonObject.getString("filename"));
                         newPicture.setMimetype(pictureJsonObject.getString("mimetype"));
                         newPerson.setPicture(newPicture);
-                        teams.add(newPerson);
+                        persons.add(newPerson);
                     }
-                    personList.setValue(teams);
+                    personList.setValue(persons);
+                    //totalContacts.setValue( totalContacts.getValue()+persons.size());
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -107,7 +117,9 @@ public class ResumeContactViewModel extends ViewModel {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                personList = null;
                 Log.i("Error",error.toString());
+                //falta mostrar error al usuario.
             }
         }) {
             @Override
@@ -132,7 +144,7 @@ public class ResumeContactViewModel extends ViewModel {
     //carga los datos de los equipos
     private  void loadTeams(){
         final List<Team> teams = new ArrayList<>();
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, Constantes.URL_API, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
@@ -152,6 +164,7 @@ public class ResumeContactViewModel extends ViewModel {
                         teams.add(newTeam);
                     }
                     teamList.setValue(teams);
+                    //totalContacts.setValue( totalContacts.getValue()+teams.size());
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -159,6 +172,7 @@ public class ResumeContactViewModel extends ViewModel {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                teamList = null;
                 Log.i("Error",error.toString());
             }
         }) {

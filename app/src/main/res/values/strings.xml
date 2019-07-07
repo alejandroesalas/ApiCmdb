@@ -32,7 +32,14 @@
     <string name="menu_document">Documentos</string>
     <string name="menu_send">Send</string>
     <string name="urlResApi">http://localhost/itop/webservices/rest.php?version=1.2</string>
-
+<!--Variables par hints-->
+    <string name="hint_name">Nombre</string>
+    <string name="hint_status">status</string>
+    <string name="hint_orgName">organizacion</string>
+    <string name="hint_lcName">Localización</string>
+    <string name="hint_city">Ciudad</string>
+    <string name="hint_pais">Pais</string>
+    <string name="hint_address">Direccion</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -2,8 +2,6 @@ package edu.cecar.syscmdb.fragments.contacts;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -46,7 +44,7 @@ public class CreateContactGroupFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_create_contact_person, container, false);
+        View view = inflater.inflate(R.layout.fragment_create_contact, container, false);
         mRecyclerView = view.findViewById(R.id.recyclerViewPersons);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));

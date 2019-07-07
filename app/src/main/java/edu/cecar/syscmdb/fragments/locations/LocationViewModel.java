@@ -20,6 +20,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import edu.cecar.syscmdb.data.model.Constantes;
 import edu.cecar.syscmdb.data.model.Location;
 import edu.cecar.syscmdb.data.model.VolleYSingleton;
 
@@ -32,7 +33,7 @@ public final class LocationViewModel  extends ViewModel {
             "\"output_fields\":\"name,status,org_id,org_name"+
             ",address,postal_code,city,country,physicaldevice_list,person_list\""+
             "}";
-    private final String url ="http://192.168.1.26:80/itop/webservices/rest.php?version=1.0";
+    //private final String url ="http://192.168.1.26:80/itop/webservices/rest.php?version=1.0";
     private VolleYSingleton volleYSingleton;
 
     public LiveData<List<Location>> getLocations() {
@@ -46,7 +47,7 @@ public final class LocationViewModel  extends ViewModel {
 
     private void loadLocations() {
         final List<Location> locations = new ArrayList<>();
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, Constantes.URL_API, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {

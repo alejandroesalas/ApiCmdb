@@ -1,10 +1,7 @@
 package edu.cecar.syscmdb;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
-import android.view.View;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.MenuItem;
@@ -13,13 +10,10 @@ import android.support.v4.widget.DrawerLayout;
 
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 
-import edu.cecar.syscmdb.fragments.ECs.CreateECFragment;
-import edu.cecar.syscmdb.fragments.ECs.SearchECsFragment;
+import edu.cecar.syscmdb.fragments.ECs.ECFragment;
 import edu.cecar.syscmdb.fragments.contacts.ResumeContactFragment;
 import edu.cecar.syscmdb.fragments.locations.GeneralLocationView;
-import edu.cecar.syscmdb.fragments.locations.ResumeLocationsFragment;
 
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -87,7 +81,7 @@ public class HomeActivity extends AppCompatActivity
             state = true;
             currenFragment = new GeneralLocationView();
         } else if (id == R.id.nav_EC) {
-            currenFragment = new CreateECFragment();
+            currenFragment = new ECFragment();
             state = true;
         } else if(id == R.id.nav_document){
         }

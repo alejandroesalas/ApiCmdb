@@ -37,7 +37,7 @@ public class ResumeContactFragment extends Fragment {
         groupImageView = (ImageView) view.findViewById(R.id.groupImageView);
         contacImageView = (ImageView) view.findViewById(R.id.contactImageView);
         txtGroupTextView = (TextView) view.findViewById(R.id.txtGroupCount);
-       // txtContacTextView = (TextView) view.findViewById(R.id.txtContactsCount);
+        //txtContacTextView = (TextView) view.findViewById(R.id.txtContactCount);
         txtPersonTextView = (TextView)view.findViewById(R.id.txtPersonCount) ;
         volleYSingleton = VolleYSingleton.getInstance(getContext());
        // ActionBar actionBar =
@@ -73,6 +73,7 @@ public class ResumeContactFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        mViewModel.totalContacts();
          mViewModel.getPersons().observe(this, new Observer<List<Person>>() {
              @Override
              public void onChanged(@Nullable List<Person> persons) {
@@ -88,7 +89,6 @@ public class ResumeContactFragment extends Fragment {
             }
         });
 
-         //txtContacTextView.setText(String.valueOf(mViewModel.totalContacts()));
     }
 
 }

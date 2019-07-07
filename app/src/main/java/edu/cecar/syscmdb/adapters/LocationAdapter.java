@@ -53,18 +53,18 @@ public final class LocationAdapter  extends RecyclerView.Adapter<LocationAdapter
     public class ViewHolder extends RecyclerView.ViewHolder{
         //private ImageView picture;
         private TextView name;
-        private TextView status;
+        //private TextView status;
         private TextView address;
-        private TextView orgName;
+       // private TextView orgName;
         private TextView city;
         private TextView country;
         public ViewHolder(View itemView){
             super(itemView);
             //se inicializan los elementos segun el layout
            name = itemView.findViewById(R.id.txtNameLo);
-           status = itemView.findViewById(R.id.txtStatusLo);
+           //status = itemView.findViewById(R.id.txtStatusLo);
            address = itemView.findViewById(R.id.txtAddressLo);
-           orgName = itemView.findViewById(R.id.txtOrNameLo);
+           //orgName = itemView.findViewById(R.id.txtOrNameLo);
            city = itemView.findViewById(R.id.txtCityLo);
            country = itemView.findViewById(R.id.txtCountryLo);
         }
@@ -73,9 +73,9 @@ public final class LocationAdapter  extends RecyclerView.Adapter<LocationAdapter
             //actualizan los datos en el recycler
                 Location theLocation1 =  location;
                 name.setText(theLocation1.getName());
-                status.setText(theLocation1.getStatus());
+               // status.setText(theLocation1.getStatus());
                 address.setText(theLocation1.getAddress());
-                orgName.setText(theLocation1.getOrgName());
+                //orgName.setText(theLocation1.getOrgName());
                 city.setText(theLocation1.getCity());
                 country.setText(theLocation1.getCountry());
                 /*
