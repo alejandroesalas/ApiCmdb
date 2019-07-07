@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">SysCmdb</string>
+    <string name="app_name_person">Persona</string>
+    <string name="app_name_work_group">Grupo de Trabajo</string>
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
@@ -42,4 +44,14 @@
     <string name="hint_address">Direccion</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_personal_information">PersonalInformationActivity</string>
+    <string name="tab_text_1">Propiedades</string>
+    <string name="tab_text_2">Grupos</string>
+    <string name="tab_text_3">ECs</string>
+    <string name="tab_text_4">Miembros</string>
+    <string name="tab_text_5">Información</string>
+    <string name="tab_text_6">Contactos</string>
+    <string name="tab_text_7">Pendiente</string>
+    <string name="title_activity_work_group">WorkGroupActivity</string>
+    <string name="title_activity_contact">ContactActivity</string>
 </resources>
