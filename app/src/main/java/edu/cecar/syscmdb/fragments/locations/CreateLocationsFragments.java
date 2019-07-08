@@ -1,7 +1,5 @@
 package edu.cecar.syscmdb.fragments.locations;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -28,7 +26,7 @@ public class CreateLocationsFragments extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_create_locations_fragments, container, false);
+        return inflater.inflate(R.layout.fragment_create_locations, container, false);
     }
 
 }

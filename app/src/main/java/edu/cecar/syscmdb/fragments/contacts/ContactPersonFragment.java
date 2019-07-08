@@ -23,7 +23,7 @@ import edu.cecar.syscmdb.adapters.ContactAdapter;
 import edu.cecar.syscmdb.data.model.VolleYSingleton;
 
 
-public class CreateContactPersonFragment extends Fragment {
+public class ContactPersonFragment extends Fragment {
     //recycler
     private RecyclerView mRecyclerView;
     private ContactAdapter contactAdapter;
@@ -33,7 +33,7 @@ public class CreateContactPersonFragment extends Fragment {
     private ResumeContactViewModel mViewModel;
     //private OnFragmentInteractionListener mListener;
     private VolleYSingleton volleYSingleton;
-    public CreateContactPersonFragment() {
+    public ContactPersonFragment() {
         // Required empty public constructor
     }
 
@@ -48,7 +48,8 @@ public class CreateContactPersonFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_create_contact, container, false);
+        View view = inflater.inflate(R.layout.fragment_contact, container, false);
+        this.getActivity().setTitle(R.string.title_fragment_Person);
         mRecyclerView = view.findViewById(R.id.recyclerViewPersons);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
@@ -75,6 +76,7 @@ public class CreateContactPersonFragment extends Fragment {
         });
         //txtContacTextView.setText(String.valueOf(mViewModel.totalContacts()));
     }
+    /*
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
 
@@ -83,18 +85,25 @@ public class CreateContactPersonFragment extends Fragment {
         super.onCreateOptionsMenu(menu, inflater);
 
     }
+    */@Override
+    public void onPrepareOptionsMenu(Menu menu) {
+
+        menu.findItem(R.id.create_item).setVisible(true);
+        menu.findItem(R.id.create_item).setEnabled(true);
+        menu.findItem(R.id.edit).setVisible(true);
+        menu.findItem(R.id.edit).setEnabled(true);
+        super.onPrepareOptionsMenu(menu);
+    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        Log.i("id",id+"");
         if (id == R.id.create_item) {
           Log.i("PersonFragment","ItemCreate");
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 }

@@ -45,6 +45,12 @@
     <string name="hint_keyEc">id</string>
     <string name="hint_nameEc">Nombre</string>
     <string name="hint_descEc">Descripción</string>
+    <!--Label title-->
+    <string name="title_fragment_contact">Contactos</string>
+    <string name="title_fragment_Group">Grupos</string>
+    <string name="title_fragment_Person">Personas</string>
+    <string name="title_fragment_Location">Localizaciones</string>
+    <string name="title_fragment_CreateContact">Crear Contacto</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_personal_information">PersonalInformationActivity</string>

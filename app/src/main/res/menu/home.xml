@@ -8,12 +8,14 @@
         app:showAsAction="never" />
     <item
         android:id="@+id/create_item"
+        android:enabled="true"
+        android:icon="@drawable/ic_add_circle_black_24dp"
         android:title="Crear"
-        app:showAsAction="ifRoom"
-        android:icon="@drawable/ic_add_circle_black_24dp"/>
+        android:visible="true"
+        app:showAsAction="ifRoom" />
     <item
         android:id="@+id/edit"
+        android:icon="@drawable/ic_edit_black_24dp"
         android:title="Editar"
-        app:showAsAction="ifRoom"
-        android:icon="@drawable/ic_edit_black_24dp"/>
+        app:showAsAction="ifRoom" />
 </menu>

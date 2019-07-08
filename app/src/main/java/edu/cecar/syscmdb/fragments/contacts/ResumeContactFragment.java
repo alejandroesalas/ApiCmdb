@@ -32,7 +32,7 @@ public class ResumeContactFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-
+        this.getActivity().setTitle(R.string.title_fragment_contact);
         View view = inflater.inflate(R.layout.resume_contact_fragment, container, false);
         groupImageView = (ImageView) view.findViewById(R.id.groupImageView);
         contacImageView = (ImageView) view.findViewById(R.id.contactImageView);
@@ -48,7 +48,7 @@ public class ResumeContactFragment extends Fragment {
         groupImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment nextFragment = new CreateContactGroupFragment();
+                Fragment nextFragment = new ContactGroupFragment();
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.contentFrame, nextFragment)
@@ -59,7 +59,7 @@ public class ResumeContactFragment extends Fragment {
         contacImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment nextFragment = new CreateContactPersonFragment();
+                Fragment nextFragment = new ContactPersonFragment();
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.contentFrame, nextFragment)

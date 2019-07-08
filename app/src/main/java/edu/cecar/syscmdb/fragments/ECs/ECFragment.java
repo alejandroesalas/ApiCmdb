@@ -2,8 +2,6 @@ package edu.cecar.syscmdb.fragments.ECs;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -71,7 +69,7 @@ public class ECFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view =inflater.inflate(R.layout.fragment_create_ec, container, false);
+        View view =inflater.inflate(R.layout.fragment_ec, container, false);
         spiFunctionalCIType = view.findViewById(R.id.spFunctionalType);
         spiFunctionalCIType.setAdapter(new ArrayAdapter<String>(getContext(),
                 android.R.layout.simple_spinner_dropdown_item,functionalCItypes));
