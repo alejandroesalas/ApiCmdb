@@ -48,6 +48,7 @@ public final class ECViewModel extends ViewModel {
             loadFunctionalCI(CItype);
         }else{
             if (!currentCItype.equalsIgnoreCase(CItype)){
+                currentCItype = CItype;
                 loadFunctionalCI(CItype);
             }
         }
@@ -82,33 +83,20 @@ public final class ECViewModel extends ViewModel {
                     JSONArray jsonArray = objects.names();
                     for (int i = 0; i<jsonArray.length();i++){
                         FunctionalCI newFunctionalCI = new FunctionalCI();
-                        JSONObject person = objects.getJSONObject( jsonArray.getString(i));
-                        JSONObject fields =  person.getJSONObject("fields");
+                        JSONObject functionalCI = objects.getJSONObject( jsonArray.getString(i));
+                        newFunctionalCI.setKey(Integer.parseInt(functionalCI.getString("key")));
+                        JSONObject fields =  functionalCI.getJSONObject("fields");
+
                         //Log.i("Fields",fields.toString());
-/*
-                        newFunctionalCI.setFriendlyname(fields.getString("friendlyname"));
-                        newFunctionalCI.setEmployeeNumber(fields.getString("employee_number"));
-                        newFunctionalCI.setFunction(fields.getString("function"));
-                        newFunctionalCI.setEmail(fields.getString("email"));
-                        newFunctionalCI.setPhone(fields.getString("phone"));
-                        newFunctionalCI.setMobilePhone(fields.getString("employee_number"));
-                        newFunctionalCI.setStatus(fields.getString("status"));
-                        Location newLocation =new Location();
-                        newLocation.setId(fields.getInt("location_id"));
-                        newLocation.setName(fields.getString("location_name"));
-                        newFunctionalCI.setLocation(newLocation);
-                        newFunctionalCI.setOrgId(fields.getString("org_id"));
-                        newFunctionalCI.setOrgName(fields.getString("org_name"));
-                        Picture newPicture = new Picture();
-                        JSONObject pictureJsonObject = fields.getJSONObject("picture");
-                        newPicture.setData(pictureJsonObject.getString("data"));
-                        newPicture.setFilename(pictureJsonObject.getString("filename"));
-                        newPicture.setMimetype(pictureJsonObject.getString("mimetype"));
-                        newFunctionalCI.setPicture(newPicture);*/
+
+                        newFunctionalCI.setClass_(fields.getString("finalclass"));
+                        newFunctionalCI.setName(fields.getString("friendlyname"));
+                        newFunctionalCI.setDesc(fields.getString("description"));
+                        newFunctionalCI.setOrg_name(fields.getString("organization_name"));
+                        newFunctionalCI.setOrg_id(Integer.parseInt(fields.getString("org_id")));
                         functionalCIS.add(newFunctionalCI);
                     }
                     functionalCIList.setValue(functionalCIS);
-                    //totalContacts.setValue( totalContacts.getValue()+persons.size());
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

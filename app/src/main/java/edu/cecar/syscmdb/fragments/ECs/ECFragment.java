@@ -20,6 +20,7 @@ import android.widget.Spinner;
 import java.util.List;
 
 import edu.cecar.syscmdb.R;
+import edu.cecar.syscmdb.adapters.FunctionalCIAdapter;
 import edu.cecar.syscmdb.data.model.FunctionalCI;
 import edu.cecar.syscmdb.data.model.VolleYSingleton;
 
@@ -28,6 +29,7 @@ public class ECFragment extends Fragment {
     private RecyclerView recyclerViewCI;
     private VolleYSingleton volleYSingleton;
     private ECViewModel mViewModel;
+    private FunctionalCIAdapter adapter;
     private final String[] functionalCItypes ={"Aplicación Web","Dispositivos fisicos","Dispositivod Virtuales",
             "Base de datos(Esquema)","Instalacion Middleware","Instalacion Software",
             "Proceso de Negocio","Solucion Aplicativa"};
@@ -59,7 +61,13 @@ public class ECFragment extends Fragment {
                 mViewModel.getFuncTionalCI(functionalCItypes[position]).observe(getActivity(), new Observer<List<FunctionalCI>>() {
                     @Override
                     public void onChanged(@Nullable List<FunctionalCI> functionalCIS) {
+                        adapter = new FunctionalCIAdapter(getContext(),functionalCIS,R.layout.layout_functionalci,new FunctionalCIAdapter.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(Object contact, int position) {
 
+                            }
+                        });
+                        recyclerViewCI.setAdapter(adapter);
                     }
                 });
             }
