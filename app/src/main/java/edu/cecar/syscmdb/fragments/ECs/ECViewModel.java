@@ -38,10 +38,11 @@ public final class ECViewModel extends ViewModel {
    private final String[] functionalCItypes ={"Aplicación Web","Dispositivos fisicos","Dispositivos Virtuales",
    "Base de datos(Esquema)","Instalacion Middleware","Instalacion Software",
            "Proceso de Negocio","Solucion Aplicativa"};
-    private  String jsonData ="{\"operation\":\"core/get\","+
+    private  final String jsonData ="{\"operation\":\"core/get\","+
             "\"class\":\"?\","+
             "\"key\":\"SELECT ?\""+
             "}";
+    private String newJsonData;
     public LiveData<List<FunctionalCI>> getFuncTionalCI(String CItype){
         if (functionalCIList == null){
             functionalCIList = new MutableLiveData<>();
@@ -56,16 +57,17 @@ public final class ECViewModel extends ViewModel {
     }
 
     private void loadFunctionalCI(String CItype) {
-         final String parameter = String.valueOf('?');
+         final String parameter = String.valueOf("\\?");
+         //Log.i("signo",jsonData.charAt(jsonData.indexOf('?'))+"");
         switch (CItype){
             case "Aplicación Web":
-                jsonData = jsonData.replaceAll(parameter,"WebApplication");
+                newJsonData = jsonData.replaceAll(parameter,"WebApplication");
                 break;
             case "Dispositivos fisicos":
-                jsonData = jsonData.replaceAll(parameter,"PhysicalDevice");
+                newJsonData = jsonData.replaceAll(parameter,"PhysicalDevice");
                 break;
             case "Dispositivos Virtuales":
-                jsonData = jsonData.replaceAll(parameter,"VirtualDevice");
+                newJsonData = jsonData.replaceAll(parameter,"VirtualDevice");
                 break;
         }
         loadFunctionalCI();
@@ -114,7 +116,7 @@ public final class ECViewModel extends ViewModel {
                 Map<String, String> parametros = new HashMap<>();
                 parametros.put("auth_user","restUser");
                 parametros.put("auth_pwd","1301");
-                parametros.put("json_data",jsonData);
+                parametros.put("json_data",newJsonData);
                 return parametros;
             }
             @Override

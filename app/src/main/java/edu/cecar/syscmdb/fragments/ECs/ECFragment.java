@@ -11,6 +11,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -30,7 +33,7 @@ public class ECFragment extends Fragment {
     private VolleYSingleton volleYSingleton;
     private ECViewModel mViewModel;
     private FunctionalCIAdapter adapter;
-    private final String[] functionalCItypes ={"Aplicación Web","Dispositivos fisicos","Dispositivod Virtuales",
+    private final String[] functionalCItypes ={"Aplicación Web","Dispositivos fisicos","Dispositivos Virtuales",
             "Base de datos(Esquema)","Instalacion Middleware","Instalacion Software",
             "Proceso de Negocio","Solucion Aplicativa"};
     public ECFragment() {
@@ -40,8 +43,30 @@ public class ECFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
     }
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
 
+        inflater.inflate(R.menu.home, menu);
+
+        super.onCreateOptionsMenu(menu, inflater);
+
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+        Log.i("id",id+"");
+        if (id == R.id.create_item) {
+            Log.i("PersonFragment","ItemCreate");
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -54,7 +79,7 @@ public class ECFragment extends Fragment {
         recyclerViewCI.setHasFixedSize(true);
         recyclerViewCI.setLayoutManager(new LinearLayoutManager(this.getContext()));
         volleYSingleton = VolleYSingleton.getInstance(getContext());
-        spiFunctionalCIType.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+       /* spiFunctionalCIType.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Log.i("SPinner clicleado",functionalCItypes[position]);
@@ -70,6 +95,30 @@ public class ECFragment extends Fragment {
                         recyclerViewCI.setAdapter(adapter);
                     }
                 });
+            }
+        });¨*/
+        spiFunctionalCIType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selectedItem = String.valueOf(spiFunctionalCIType.getItemAtPosition(position));
+                Log.i("SPinner clicleado",selectedItem);
+                mViewModel.getFuncTionalCI(functionalCItypes[position]).observe(getActivity(), new Observer<List<FunctionalCI>>() {
+                    @Override
+                    public void onChanged(@Nullable List<FunctionalCI> functionalCIS) {
+                        adapter = new FunctionalCIAdapter(getContext(),functionalCIS,R.layout.layout_functionalci,new FunctionalCIAdapter.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(Object contact, int position) {
+
+                            }
+                        });
+                        recyclerViewCI.setAdapter(adapter);
+                    }
+                });
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
             }
         });
         return view;

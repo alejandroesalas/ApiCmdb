@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import edu.cecar.syscmdb.R;
 import edu.cecar.syscmdb.data.model.FunctionalCI;
 
 public class FunctionalCIAdapter extends RecyclerView.Adapter<FunctionalCIAdapter.ViewHolder> {
@@ -51,6 +52,9 @@ public class FunctionalCIAdapter extends RecyclerView.Adapter<FunctionalCIAdapte
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             //Inicializo los campos
+            key = itemView.findViewById(R.id.txtkeyEc);
+            name = itemView.findViewById(R.id.txtNameEC);
+            description = itemView.findViewById(R.id.txtDescEC);
         }
 
         public void bind(final FunctionalCI functionalCI, final FunctionalCIAdapter.OnItemClickListener listener) {
